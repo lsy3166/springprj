@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	
+	<context:annotation-config />
+	
+	<bean id="mainExam" p:computor="50" p:korean="100" p:english="70" p:mathmethics="60" class="springprj.di.entity.MainExamSubject"/>
+	<bean id="mainExam2" p:computor="10" p:korean="20" p:english="30" p:mathmethics="40" class="springprj.di.entity.MainExamSubject"/>
+	<bean id="subExam" class="springprj.di.entity.SubExamSubject">
+		<property name="history" value="100"></property>
+		<property name="japanese" value="90"></property>
+		<property name="music" value="50"></property>
+		<property name="society" value="80"></property>
+		<property name="science" value="60"></property>
+	</bean>
+
+	<bean id="gPrint" class="springprj.di.ui.GridPrint">
+		<!-- <property name="exam" ref="subExam" /> -->
+	</bean>
+	<bean id="iPrint" class="springprj.di.ui.InlinePrint">
+		<!-- <property name="exam" ref="subExam" /> -->
+	</bean>
+	
+	<util:list id="exams" list-class="java.util.ArrayList">
+		<bean id="mainExam" p:computor="20" p:korean="30" p:english="40" p:mathmethics="50" class="springprj.di.entity.MainExamSubject"/>
+		<ref bean="mainExam"/>
+		<ref bean="mainExam2"/>
+		<ref bean="subExam"/>
+	</util:list>
+
+</beans>
