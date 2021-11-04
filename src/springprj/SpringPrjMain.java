@@ -16,7 +16,7 @@ public class SpringPrjMain {
 		List<Exam> exams = (List<Exam>)ComDefinition.context.getBean("exams");
 		AtomicInteger index = new AtomicInteger(1);
 		exams.stream().forEach(exam -> {
-			System.out.println("¸®½ºÆ® ´ë»ó [" + index.getAndAdd(1) + "] : " +  exam);
+			System.out.println("ë¦¬ìŠ¤íŠ¸ ëŒ€ìƒ ["+ index.getAndAdd(1) + "] : " +  exam);
 		});
 		System.out.println("---------------------------------------------------------------------------------------------");
 		Print console = (Print)ComDefinition.context
